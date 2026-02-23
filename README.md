@@ -58,11 +58,20 @@ return (
 );
 ```
 ## 2. Componentes com Letra Minúscula.
-O React diferencia tags HTML de componentes pela capitalização. Se começar com letra minúscula, o React acha que é uma tag HTML que ainda não existe (como <botao /> em vez de <Botao />).
+O React diferencia tags HTML de componentes pela capitalização. Se começar com letra minúscula, o React acha que é uma tag HTML que ainda não existe (como 
+```jsx
+<botao />  em vez de  <Botao />).
+```
 
-❌ Errado: function meuComponente() { ... }
+❌ Errado:  
+```jsx 
+function meuComponente(){ ... } 
+```
 
-✅ Certo: function MeuComponente() { ... }
+✅ Certo: 
+```jsx
+function MeuComponente(){ ... }
+```
 
 ## 3. Esquecer o export ou import
 Se você criou um componente em um arquivo novo, você precisa exportá-lo, e no arquivo onde vai usá-lo, você precisa importá-lo com o caminho correto.
@@ -72,10 +81,12 @@ Dica: Verifique sempre se o caminho no import está como ./NomeDoArquivo. O ./ d
 ## 4. Usar class em vez de className
 Como o React usa JavaScript e a palavra class já serve para criar Classes no JS, o React usa className para classes de CSS.
 
-❌ Errado: <div class="container">
+❌ Errado: 
+```jsx
+<div class="container">
 
 ✅ Certo: <div className="container">
-
+```
 ## 5. Tentar renderizar Objetos Inteiros
 O React sabe renderizar textos, números e listas, mas ele trava se você tentar colocar um objeto inteiro dentro do HTML.
 ```jsx
