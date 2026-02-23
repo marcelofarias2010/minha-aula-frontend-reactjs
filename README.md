@@ -31,3 +31,64 @@ npm install
 npm run dev
 ```
 
+⚠️ Guia de Sobrevivência: Erros Comuns de Iniciante no React
+Se o seu código não está rodando ou a tela ficou branca, não entre em pânico! Verifique esta lista antes de chamar o professor:
+
+1. O Elemento Pai Único (The Fragment Error)
+No React, um componente precisa retornar apenas um elemento "pai". Você não pode retornar duas tags soltas.
+
+❌ Errado:
+
+JavaScript
+return (
+  <h1>Título</h1>
+  <p>Subtítulo</p>
+);
+✅ Certo (Envolva em uma div ou em um Fragment <>):
+
+JavaScript
+return (
+  <>
+    <h1>Título</h1>
+    <p>Subtítulo</p>
+  </>
+);
+2. Componentes com Letra Minúscula
+O React diferencia tags HTML de componentes pela capitalização. Se começar com letra minúscula, o React acha que é uma tag HTML que ainda não existe (como <botao /> em vez de <Botao />).
+
+❌ Errado: function meuComponente() { ... }
+
+✅ Certo: function MeuComponente() { ... }
+
+3. Esquecer o export ou import
+Se você criou um componente em um arquivo novo, você precisa exportá-lo, e no arquivo onde vai usá-lo, você precisa importá-lo com o caminho correto.
+
+Dica: Verifique sempre se o caminho no import está como ./NomeDoArquivo. O ./ diz que o arquivo está na mesma pasta.
+
+4. Usar class em vez de className
+Como o React usa JavaScript e a palavra class já serve para criar Classes no JS, o React usa className para classes de CSS.
+
+❌ Errado: <div class="container">
+
+✅ Certo: <div className="container">
+
+5. Tentar renderizar Objetos Inteiros
+O React sabe renderizar textos, números e listas, mas ele trava se você tentar colocar um objeto inteiro dentro do HTML.
+
+❌ Errado: ```jsx
+const usuario = { nome: "João", idade: 20 };
+return <p>{usuario}</p>; // Vai dar erro: "Objects are not valid as a React child"
+
+
+✅ **Certo (Acesse a propriedade específica):**
+```jsx
+return <p>{usuario.nome}</p>;
+6. Erro de Case no onClick
+No HTML é onclick. No React é CamelCase.
+
+❌ Errado: <button onclick={clicou}>
+
+✅ Certo: <button onClick={clicou}>
+
+💡 Dica de Ouro: O Console do Navegador
+Se a tela ficar branca, aperte F12 e vá na aba Console. O React é muito bom em dizer exatamente em qual linha você errou, mas ele faz isso por lá!
